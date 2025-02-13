@@ -30,7 +30,7 @@ function sortear() {
             }
             document.querySelector('#resultado .texto__paragrafo').textContent = `Números sorteados: ${numerosSorteados.join(", ")}.`;
         }
-
+        
 }
 
 function verificaRepetido(num) {
@@ -57,3 +57,8 @@ function sorteiaNumero(minimo, maximo) {
     return numerosSorteados;   
 }
 
+function limparCampos() {
+    document.getElementById("quantidade").value = "";
+    document.getElementById("de").value = "";
+    document.getElementById("ate").value = "";
+}
