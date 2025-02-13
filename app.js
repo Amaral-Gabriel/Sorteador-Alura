@@ -1,13 +1,36 @@
 
 let numerosSorteados = [];
+
+function validaEntrada(quantidadeNumero, primeiroNumero, ultimoNumero) {
+    if (quantidadeNumero <= 0){
+        alert("A quantidade precisa ser maior que 0!");
+        return false;
+    } else if (ultimoNumero <= 0){
+        alert("O último número precisa ser maior que 0!");
+        return false;
+    } else if (primeiroNumero < 0) {
+        alert("O primeiro número precisa ser positivo ou 0!");
+        return false;
+    } else if (primeiroNumero > ultimoNumero) {
+        alert("O primeiro número precisa ser menor que o último número!");
+        return false;
+    } else if (quantidadeNumero > (ultimoNumero - primeiroNumero)) {
+        alert("A quantidade precisa ser menor ou igual a diferença entre o último e o primeiro");
+        return false;
+    }
+    return true;
+}
 function sortear() {
     let quantidadeNumero = parseInt(document.getElementById("quantidade").value);
     let primeiroNumero = parseInt(document.getElementById("de").value);
     let ultimoNumero = parseInt(document.getElementById("ate").value);
-    for (var i = 0; i < quantidadeNumero; i++) {
-        sorteiaNumero(primeiroNumero, ultimoNumero)
-    }
-    document.querySelector('#resultado .texto__paragrafo').textContent = `Números sorteados: ${numerosSorteados.join(", ")}.`;
+    if (validaEntrada(quantidadeNumero, primeiroNumero, ultimoNumero)){
+        for (var i = 0; i < quantidadeNumero; i++) {
+            sorteiaNumero(primeiroNumero, ultimoNumero)
+            }
+            document.querySelector('#resultado .texto__paragrafo').textContent = `Números sorteados: ${numerosSorteados.join(", ")}.`;
+        }
+
 }
 
 function verificaRepetido(num) {
@@ -34,6 +57,3 @@ function sorteiaNumero(minimo, maximo) {
     return numerosSorteados;   
 }
 
-function mensagemDeErro () {
-    alert("Digite valores válidos!")
-}
