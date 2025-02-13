@@ -30,7 +30,16 @@ function sortear() {
             }
             document.querySelector('#resultado .texto__paragrafo').textContent = `Números sorteados: ${numerosSorteados.join(", ")}.`;
         }
-        
+     document.getElementById("btn-reiniciar").classList.replace("container__botao-desabilitado", "container__botao");
+}
+
+function reiniciar() {
+    limparCampos();
+    numerosSorteados = [];
+    document.getElementById("btn-reiniciar").classList.replace("container__botao", "container__botao-desabilitado");
+    document.querySelector('#resultado .texto__paragrafo').textContent = "Números sorteados:  nenhum até agora";
+    
+
 }
 
 function verificaRepetido(num) {
